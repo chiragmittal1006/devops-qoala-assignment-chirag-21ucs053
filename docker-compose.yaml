@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: myapp-image2
+    container_name: nginx_container  # Give your nginx container a name
+    ports:
+      - "80:80"                       # Correct port mapping
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Correct volume mapping
+      # - ./html:/usr/share/nginx/html  # Optional: Map your HTML files if needed
+    networks:
+      - nginx-network
+
+  Python:
+    image: myapp-image1
+    container_name: python_container
+    ports:
+      - "8000"                       # Expose port 8000 for communication within the network
+    networks:
+      - nginx-network
+
+networks:
+  nginx-network:
+    driver: bridge                   # Use the bridge network driver
