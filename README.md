@@ -1,6 +1,6 @@
 # Running Application
 ![Running Application](RunningApplication.png)
-![logs](logs.png)
+![logs](Applogs.png)
 
 # Dockerized Nginx and Python Application
 
